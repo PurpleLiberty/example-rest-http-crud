@@ -10,7 +10,6 @@
 
   <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}" id="defaultHttpEndpoint" host="*" />
 
-  <webApplication name="RestCrud" location="rest-http-crud.war" contextRoot="${app.context.root}" />
+  <webApplication name="RestCrud" location="${project.artifactId}.war" contextRoot="${app.context.root}" />
 
 </server>
-
