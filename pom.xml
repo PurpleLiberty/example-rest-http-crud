@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~
   ~  Copyright 2016-2017 Red Hat, Inc, IBM, and individual contributors.
@@ -31,24 +31,24 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <http.port>9080</http.port>
-        <https.port>9443</https.port>     
+        <https.port>9443</https.port>
         <version.arquillian-cube>1.18.2</version.arquillian-cube>
         <version.awaitility>4.0.1</version.awaitility>
         <version.fabric8-maven-plugin>4.3.0</version.fabric8-maven-plugin>
         <version.maven-surefire-plugin>2.22.2</version.maven-surefire-plugin>
         <version.restassured>4.1.1</version.restassured>
         <version.resteasy>3.6.2.Final</version.resteasy>
-      
+
         <version.postgresql>42.2.7</version.postgresql>
         <version.assertj>3.13.2</version.assertj>
         <version.h2>1.4.199</version.h2>
         <version.minimaljson>0.9.4</version.minimaljson>
         <version.fabric8-openshift-client>4.5.0</version.fabric8-openshift-client>
-        <fabric8.generator.from>docker.io/openliberty/open-liberty-s2i:19.0.0.9</fabric8.generator.from>      
+        <fabric8.generator.from>docker.io/openliberty/open-liberty-s2i:19.0.0.9</fabric8.generator.from>
     </properties>
 
     <dependencyManagement>
-        <dependencies>           
+        <dependencies>
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
@@ -67,27 +67,27 @@
     </dependencyManagement>
 
     <dependencies>
-            <dependency>
-                    <groupId>jakarta.platform</groupId>
-                    <artifactId>jakarta.jakartaee-api</artifactId>
-                    <version>8.0.0</version>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.eclipse.microprofile</groupId>
-                    <artifactId>microprofile</artifactId>
-                    <version>3.3</version>
-                    <type>pom</type>
-                    <scope>provided</scope>
-                </dependency>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>8.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>3.3</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- For tests -->
         <dependency>
-                <groupId>io.fabric8</groupId>
-                <artifactId>openshift-client</artifactId>
-                <version>${version.fabric8-openshift-client}</version>
-                <scope>test</scope>
-            </dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>openshift-client</artifactId>
+            <version>${version.fabric8-openshift-client}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -95,11 +95,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>1.0.4</version>
-                <scope>test</scope>
-            </dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.0.4</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>io.openliberty.arquillian</groupId>
             <artifactId>arquillian-liberty-managed-junit</artifactId>
@@ -113,12 +113,12 @@
             <version>${version.restassured}</version>
             <scope>test</scope>
         </dependency>
-       <dependency>
-           <groupId>com.eclipsesource.minimal-json</groupId>
-           <artifactId>minimal-json</artifactId>
-           <scope>test</scope>
-           <version>${version.minimaljson}</version>
-       </dependency>
+        <dependency>
+            <groupId>com.eclipsesource.minimal-json</groupId>
+            <artifactId>minimal-json</artifactId>
+            <scope>test</scope>
+            <version>${version.minimaljson}</version>
+        </dependency>
         <dependency>
             <groupId>org.arquillian.cube</groupId>
             <artifactId>arquillian-cube-openshift</artifactId>
@@ -202,6 +202,7 @@
                         <default.http.port>${http.port}</default.http.port>
                         <default.https.port>${https.port}</default.https.port>
                         <app.context.root>/</app.context.root>
+                        <project.artifactId>${project.artifactId}</project.artifactId>
                     </bootstrapProperties>
                 </configuration>
                 <executions>
@@ -212,7 +213,7 @@
                             <goal>create</goal>
                             <goal>install-feature</goal>
                             <goal>deploy</goal>
-                        </goals>                      
+                        </goals>
                     </execution>
                     <execution>
                         <id>package</id>
@@ -297,25 +298,25 @@
                     </execution>
 
                     <execution>
-                            <id>copy-h2-snippet</id>
-                            <phase>generate-test-resources</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-    
-                            <configuration>
-                                <outputDirectory>${project.build.directory}/liberty/wlp/usr/servers/defaultServer/configDropins/overrides</outputDirectory>
-                                <overwrite>true</overwrite>
-                                <resources>
-                                    <resource>
-                                        <directory>${basedir}/src/main/liberty/config/h2</directory>
-                                        <includes>
-                                            <include>dataSource.xml</include>
-                                        </includes>
-                                    </resource>
-                                </resources>
-                            </configuration>
-                        </execution>
+                        <id>copy-h2-snippet</id>
+                        <phase>generate-test-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/liberty/wlp/usr/servers/defaultServer/configDropins/overrides</outputDirectory>
+                            <overwrite>true</overwrite>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/liberty/config/h2</directory>
+                                    <includes>
+                                        <include>dataSource.xml</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
