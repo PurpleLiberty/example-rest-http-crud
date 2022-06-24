@@ -39,7 +39,7 @@
         <version.restassured>4.1.1</version.restassured>
         <version.resteasy>3.14.0.Final</version.resteasy>
 
-        <version.postgresql>42.2.25</version.postgresql>
+        <version.postgresql>42.3.3</version.postgresql>
         <version.assertj>3.13.2</version.assertj>
         <version.h2>1.4.199</version.h2>
         <version.minimaljson>0.9.4</version.minimaljson>
