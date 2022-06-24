@@ -37,7 +37,7 @@
         <version.fabric8-maven-plugin>4.3.0</version.fabric8-maven-plugin>
         <version.maven-surefire-plugin>2.22.2</version.maven-surefire-plugin>
         <version.restassured>4.1.1</version.restassured>
-        <version.resteasy>3.6.2.Final</version.resteasy>
+        <version.resteasy>3.14.0.Final</version.resteasy>
 
         <version.postgresql>42.2.25</version.postgresql>
         <version.assertj>3.13.2</version.assertj>
